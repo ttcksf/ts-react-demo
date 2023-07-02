@@ -1,14 +1,18 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import TaskList from "./screens/ts-props/TaskList";
-import Form from "./screens/ts-event/Form";
+import Counter from "./screens/ts-counter/Counter";
+import Heading from "./screens/ts-counter/components/Heading";
+import Section from "./screens/ts-counter/components/Section";
 
 function App() {
+  // 親から子にステートを渡すように変更した
+  const [count, setCount] = useState<number>(0);
+
   return (
     <>
-      <Form />
+      <Heading title={"Hello"} />
+      <Section title="Different Title">This is my section.</Section>
+      <Counter setCount={setCount}>Count is {count}</Counter>
     </>
   );
 }
